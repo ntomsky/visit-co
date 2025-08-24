@@ -8,6 +8,7 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import { MobileLayout } from "./components/mobile-layout";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -28,11 +29,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-gray-50">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -42,7 +43,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <MobileLayout>
+      <Outlet />
+    </MobileLayout>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
