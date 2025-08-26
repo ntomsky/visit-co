@@ -1,5 +1,14 @@
 import type { Route } from "./+types/home";
 import { MenuItem } from "../components/menu-item";
+import { 
+  Wifi, 
+  PlaneLanding, 
+  Home as HomeIcon, 
+  Map, 
+  MessageCircle, 
+  Shield, 
+  PlaneTakeoff 
+} from 'lucide-react';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,50 +19,49 @@ export function meta({}: Route.MetaArgs) {
 
 const menuItems = [
   {
-    icon: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=120&h=80&fit=crop&crop=center",
+    icon: Wifi,
     title: "WIFI ACCESS",
     description: "MountainView2024 • Copy to connect",
-    badge: { text: "FEATURED", type: "featured" as const },
     onClick: () => {
       navigator.clipboard.writeText("MountainView2024");
       // Could add toast notification here
     }
   },
   {
-    icon: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=120&h=80&fit=crop&crop=center",
+    icon: PlaneLanding,
     title: "ARRIVAL",
     description: "Directions, parking, and check-in",
     navTo: "/arrival"
   },
   {
-    icon: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=120&h=80&fit=crop&crop=center",
+    icon: HomeIcon,
     title: "HOUSE GUIDE",
     description: "TV, kitchen, laundry, HVAC, hot tub",
     navTo: "/house-guide"
   },
   {
-    icon: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=120&h=80&fit=crop&crop=center",
+    icon: Map,
     title: "LOCAL EXPLORE",
     description: "Restaurants, hikes, and attractions",
     navTo: "/local",
-    badge: { text: "DIGITAL ONLY", type: "digital" as const }
   },
   {
-    icon: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=120&h=80&fit=crop&crop=center",
+    icon: MessageCircle,
     title: "CONTACT HOST",
     description: "Questions? We're here to help!",
     navTo: "/more",
-    badge: { text: "DIGITAL ONLY", type: "digital" as const }
   },
   {
-    icon: "https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?w=120&h=80&fit=crop&crop=center",
+    icon: Shield,
     title: "SAFETY & RULES",
-    description: "Important guidelines for your stay"
+    description: "Important guidelines for your stay",
+    navTo: "/safety",
   },
   {
-    icon: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=120&h=80&fit=crop&crop=center",
+    icon: PlaneTakeoff,
     title: "CHECKOUT",
-    description: "Departure checklist and instructions"
+    description: "Departure checklist and instructions",
+    navTo: "/checkout",
   }
 ];
 
@@ -79,7 +87,6 @@ export default function Home() {
               title={item.title}
               description={item.description}
               navTo={item.navTo}
-              badge={item.badge}
               onClick={item.onClick}
             />
           ))}
