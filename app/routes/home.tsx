@@ -1,14 +1,14 @@
 import type { Route } from "./+types/home";
 import { MenuItem } from "../components/menu-item";
 import { 
-  Wifi, 
-  PlaneLanding, 
-  Home as HomeIcon, 
-  Map, 
-  MessageCircle, 
-  Shield, 
-  PlaneTakeoff 
-} from 'lucide-react';
+  WifiIcon,
+  ArrivalIcon,
+  HouseIcon,
+  ExploreIcon,
+  ContactIcon,
+  SafetyIcon,
+  CheckoutIcon
+} from '../components/custom-icons';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,7 +19,7 @@ export function meta({}: Route.MetaArgs) {
 
 const menuItems = [
   {
-    icon: Wifi,
+    icon: WifiIcon,
     title: "WIFI ACCESS",
     description: "MountainView2024 • Copy to connect",
     onClick: () => {
@@ -28,37 +28,37 @@ const menuItems = [
     }
   },
   {
-    icon: PlaneLanding,
+    icon: ArrivalIcon,
     title: "ARRIVAL",
     description: "Directions, parking, and check-in",
     navTo: "/arrival"
   },
   {
-    icon: HomeIcon,
+    icon: HouseIcon,
     title: "HOUSE GUIDE",
     description: "TV, kitchen, laundry, HVAC, hot tub",
     navTo: "/house-guide"
   },
   {
-    icon: Map,
+    icon: ExploreIcon,
     title: "LOCAL EXPLORE",
     description: "Restaurants, hikes, and attractions",
     navTo: "/local",
   },
   {
-    icon: MessageCircle,
+    icon: ContactIcon,
     title: "CONTACT HOST",
     description: "Questions? We're here to help!",
     navTo: "/more",
   },
   {
-    icon: Shield,
+    icon: SafetyIcon,
     title: "SAFETY & RULES",
     description: "Important guidelines for your stay",
     navTo: "/safety",
   },
   {
-    icon: PlaneTakeoff,
+    icon: CheckoutIcon,
     title: "CHECKOUT",
     description: "Departure checklist and instructions",
     navTo: "/checkout",

@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router";
 import type { LucideIcon } from 'lucide-react';
 
+type CustomIconComponent = React.ComponentType<{ className?: string }>;
+
 interface MenuItemProps {
-  icon: string | LucideIcon;
+  icon: string | LucideIcon | CustomIconComponent;
   title: string;
   description: string;
   navTo?: string;
@@ -28,8 +30,8 @@ export function MenuItem({ icon, title, description, navTo, badge, onClick }: Me
             className="w-20 h-16 rounded-lg object-cover"
           />
         ) : IconComponent ? (
-          <div className="w-20 h-16 rounded-lg bg-gray-100 flex items-center justify-center">
-            <IconComponent className="w-8 h-8 text-gray-600" />
+          <div className="w-20 h-16 rounded-lg flex items-center justify-center">
+            <IconComponent className="w-16 h-16" />
           </div>
         ) : (
           <div className="w-20 h-16 rounded-lg bg-gray-100 flex items-center justify-center">
